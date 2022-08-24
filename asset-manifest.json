@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/sergANTstar/goit-react-hw-05-movies.git/static/css/main.7acaea2f.css",
+    "main.js": "/sergANTstar/goit-react-hw-05-movies.git/static/js/main.88fa4ddd.js",
+    "static/css/905.658d3d3d.chunk.css": "/sergANTstar/goit-react-hw-05-movies.git/static/css/905.658d3d3d.chunk.css",
+    "static/js/905.3d964b66.chunk.js": "/sergANTstar/goit-react-hw-05-movies.git/static/js/905.3d964b66.chunk.js",
+    "static/css/790.887ff972.chunk.css": "/sergANTstar/goit-react-hw-05-movies.git/static/css/790.887ff972.chunk.css",
+    "static/js/790.31f73256.chunk.js": "/sergANTstar/goit-react-hw-05-movies.git/static/js/790.31f73256.chunk.js",
+    "static/js/731.114fa6b9.chunk.js": "/sergANTstar/goit-react-hw-05-movies.git/static/js/731.114fa6b9.chunk.js",
+    "static/css/468.658d3d3d.chunk.css": "/sergANTstar/goit-react-hw-05-movies.git/static/css/468.658d3d3d.chunk.css",
+    "static/js/468.e5c02f28.chunk.js": "/sergANTstar/goit-react-hw-05-movies.git/static/js/468.e5c02f28.chunk.js",
+    "static/media/404.jpeg": "/sergANTstar/goit-react-hw-05-movies.git/static/media/404.8cd11e2b90c438b3900d.jpeg",
+    "index.html": "/sergANTstar/goit-react-hw-05-movies.git/index.html",
+    "main.7acaea2f.css.map": "/sergANTstar/goit-react-hw-05-movies.git/static/css/main.7acaea2f.css.map",
+    "main.88fa4ddd.js.map": "/sergANTstar/goit-react-hw-05-movies.git/static/js/main.88fa4ddd.js.map",
+    "905.658d3d3d.chunk.css.map": "/sergANTstar/goit-react-hw-05-movies.git/static/css/905.658d3d3d.chunk.css.map",
+    "905.3d964b66.chunk.js.map": "/sergANTstar/goit-react-hw-05-movies.git/static/js/905.3d964b66.chunk.js.map",
+    "790.887ff972.chunk.css.map": "/sergANTstar/goit-react-hw-05-movies.git/static/css/790.887ff972.chunk.css.map",
+    "790.31f73256.chunk.js.map": "/sergANTstar/goit-react-hw-05-movies.git/static/js/790.31f73256.chunk.js.map",
+    "731.114fa6b9.chunk.js.map": "/sergANTstar/goit-react-hw-05-movies.git/static/js/731.114fa6b9.chunk.js.map",
+    "468.658d3d3d.chunk.css.map": "/sergANTstar/goit-react-hw-05-movies.git/static/css/468.658d3d3d.chunk.css.map",
+    "468.e5c02f28.chunk.js.map": "/sergANTstar/goit-react-hw-05-movies.git/static/js/468.e5c02f28.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.88fa4ddd.js"
+  ]
+}
