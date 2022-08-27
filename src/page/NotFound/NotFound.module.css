@@ -29,7 +29,7 @@
     border-radius: 15px;
     width: 120px;
     height: 30px;
-    background-color: rgb(0, 74, 179);
+    background-color: #5db09d;
     color: rgb(255, 255, 255);
 
     transition-property: color, background-color ;
