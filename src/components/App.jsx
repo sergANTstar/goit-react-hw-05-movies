@@ -16,7 +16,7 @@ export const App = () => {
   return (
   <Suspense fallback={<Loader/>}>
     <Routes>
-      <Route path="/goit-react-hw-05-movies/" element={<Shared />}>
+      <Route path="/" exact element={<Shared />}>
           <Route
             index element={<Suspense fallback={<Loader/>}>
                 <Home/>
