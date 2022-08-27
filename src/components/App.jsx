@@ -1,56 +1,45 @@
-import { Routes, Route } from "react-router-dom";
-import {lazy, Suspense} from 'react';
-import {Shared} from './Shared/Shared';
-import {Cast} from './Cast/Cast';
-import { Review } from "./Review/Review";
-import { Loader} from './Loader/Loader';
+import { lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import {Menue} from './Menue/Menue';
+import {Loader} from '../components/Loader/Loader';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+const Home = lazy(() => import('../page/Home/Home'));
+const MoviesCard = lazy(() => import('../components/MoviesCard/MoviesCard'));
 const SearchBar = lazy(() => import('../page/SearchBar/SearchBar'));
-const Movies = lazy(() => import('../page/Movies/Movies'));
-const Home = lazy(() => import('../page/Home'));
+const MovieDetails = lazy(() =>
+  import('../components/MovieDetails/MovieDetails')
+);
+const Cast = lazy(() => import('../components/Cast/Cast'));
+const Review = lazy(() => import('../components/Review/Review')
+);
 const NotFound = lazy(() => import('../page/NotFound/NotFound'));
-
-
 
 export const App = () => {
   return (
-  <Suspense fallback={<Loader/>}>
-    <Routes>
-      <Route path="/" exact element={<Shared />}>
-          <Route
-            index element={<Suspense fallback={<Loader/>}>
-                <Home/>
-              </Suspense>
-              }
-          /> 
-          <Route
-            path="/goit-react-hw-05-movies/movies"
-            element={
-              <Suspense fallback={<Loader/>}>
-                <SearchBar />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/goit-react-hw-05-movies/movies/:movieId"
-            element={
-              <Suspense fallback={<Loader/>}>
-                <Movies/>
-              </Suspense>} 
-          >
-            <Route path="cast" element={<Cast/>} />
-            <Route path="reviews" element={<Review/>}/>
+    <>
+      <Menue />
+      <ToastContainer
+        position={'top-center'}
+        autoClose={3000}
+        theme={'colored'}
+      />
+   
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="movies" element={<MoviesCard />}>
+            <Route index element={<SearchBar />}></Route>
+            <Route path=":movieId" element={<MovieDetails />}>
+              <Route path="cast" element={<Cast />}></Route>
+              <Route path="reviews" element={<Review />}></Route>
+            </Route>
           </Route>
-        </Route>
-        <Route
-          path="*"
-          element={
-            <Suspense fallback={<Loader/>}>
-              <NotFound/>
-            </Suspense>
-          }
-        />
-      </Routes>
-    </Suspense>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
+      </Suspense>
+      {/* </Suspense> */}
+    </>
   );
 };

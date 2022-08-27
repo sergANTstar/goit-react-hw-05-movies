@@ -1,33 +1,56 @@
-import { getCastMovies } from "services/Api";
 import { useEffect, useState } from "react";
-import {CastItem} from './CastItem/CastItem';
 import { useParams } from "react-router-dom";
+import * as moviesAPI from 'services/Api';
+import { BackButton } from "components/BackButton/BackButton";
 
 export const Cast =() => {
     const [movieCast, setMovieCast] = useState([]);
     const {movieId} = useParams;
 
     useEffect(() => {
-        getCastMovies(movieId).then(data => {
-            setMovieCast(data.cast);
-           
-        });
+        moviesAPI.getCast(movieId).then(response => setMovieCast(response.cast));
     }, [movieId]);
 
-    return(
+    const poster = profile_path => {
+        return profile_path === null 
+        ? 'https://i.postimg.cc/G2jSRfZG/images.png'
+        : `https://image.tmdb.org/t/p/w300${profile_path}`
+      };
+
+      const scrollToUp = () => {
+        window.scrollTo({
+          top: 100,
+          behavior: 'smooth',
+        });
+      };
+
+      return (
         <>
-            {movieCast && movieCast.length 
-            ? (<ul>
-                    {movieCast.map(items => {
-                        return (
-                            <li key={items.id}>
-                                <CastItem cast={items}></CastItem>
-                            </li>
-                        )
-                            })}
-                </ul>)
-            : (<p>No movie</p>)
-            }
+          {movieCast && (
+            <div>
+              {movieCast.map(items => (
+                <li key={items.id}>
+                  <img
+                    src={`${poster(items.profile_path)}`}
+                    alt={items.name}
+                    width="240"
+                  />
+                  <p>{items.name}</p>
+                  <p>
+                    {' '}
+                    Character:<p>
+                      {' '}
+                      {items.character}{' '}
+                    </p>{' '}
+                  </p>
+                </li>
+              ))}
+            </div>
+          )}
+          <BackButton
+            onClick={scrollToUp}
+            nameBtn={'go UP'}
+          />
         </>
-    )
-}
+      );
+    }

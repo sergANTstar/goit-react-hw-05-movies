@@ -1,8 +1,9 @@
 import { Outlet } from "react-router-dom";
-import css from './Shared.module.css';
-import {Link} from './Shared.styled'
+import css from './Menue.module.css';
+import {Link} from './Menue.styled'
 
-export const Shared = () => {
+
+export const  Menue = () => {
     return (
         <>
         <header className={css.header}>

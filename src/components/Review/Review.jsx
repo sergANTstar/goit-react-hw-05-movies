@@ -1,30 +1,46 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getRewiesMovies } from "services/Api";
-import {RevieItems} from './RevieItems/RevieItems';
+import * as moviesAPI from 'services/Api';
+import { BackButton } from "components/BackButton/BackButton";
+
 
 export const Review = () => {
-    const [movieReviews, setMovieReviews] = useState(null);
+    const [movieReviews, setMovieReviews] = useState([]);
     const {movieId} = useParams();
 
     useEffect(() => {
-        getRewiesMovies(movieId).then(data => {
-            setMovieReviews(data.results);
-        });}, [movieId])
+        moviesAPI
+          .getReviews(movieId)
+          .then(response => setMovieReviews(response.results));
+      }, [movieId]);
 
-        return (
-            <div>
-                {movieReviews && movieReviews.length ?(
-                    <ul>
-                        {movieReviews.map(item => {
-                            return (
-                                <li key={item.id}>
-                                    <RevieItems reviews={item}></RevieItems>
-                                </li>
-                            )
-                        })}
-                    </ul>
-                ) : (<p>No film</p>)}
-            </div>
-        )
-}
+      const scrollToUp = () => {
+        window.scrollTo({
+          top: 100,
+          behavior: 'smooth',
+        });
+      };
+
+      return (
+        <>
+          {movieReviews.length > 0 ? (
+            <ul>
+              {movieReviews.map(items => (
+                <li key={items.id}>
+                  <p>
+                    Author: <p> {items.author} </p>
+                  </p>
+                  <p>{items.content}</p>
+                </li>
+              ))}
+              <BackButton
+                onClick={scrollToUp}
+                nameBtn={'go UP'}
+              />
+            </ul>
+          ) : (
+            <p>There are no reviews for this movie</p>
+          )}
+        </>
+      );
+    }

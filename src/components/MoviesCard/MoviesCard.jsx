@@ -1,32 +1,38 @@
-import {MovieDetails} from '../../components/MovieDetails/MovieDetails'
+import {MovieDetails} from '../MovieDetails/MovieDetails'
 import {Outlet, Link, useLocation} from 'react-router-dom';
-import { getDetailsMovies } from 'services/Api';
+import * as moviesAPI from 'services/Api';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Suspense } from 'react';
-import {BackButton} from '../../components/BackButton/BackButton';
-import css from './Movies.module.css'
+import {BackButton} from '../BackButton/BackButton';
+import css from './MoviesCard.module.css'
 import { Loader } from 'components/Loader/Loader';
 
-export default function  Movies  () {
+export default function  MoviesCard  () {
     const location = useLocation();
-    const [movie, setMovie] = useState(null);
+    const [cast, setCast] = useState(null);
     const {movieId} = useParams();
 
     useEffect(() => {
-        getDetailsMovies(movieId).then(data => {
-            setMovie(data);
-        });
-    }, [movieId]);
+        moviesAPI.getCast(movieId).then(response => setCast(response.cast));
+      }, [movieId]);
 
+      const scrollToUp = () => {
+        window.scrollTo({
+          top: 100,
+          // top: document.documentElement.scrollHeight,
+          behavior: 'smooth',
+        });
+
+      }
     return(
         <div className={css.movies}>
             <div className={css.movies__btn}>
-                <BackButton/>
+                <BackButton onClick={scrollToUp}/>
             </div>
             <Suspense fallback={<Loader />}>
             <div>
-                {movie && <MovieDetails movie={movie}/>}
+                {cast && <MovieDetails movie={cast}/>}
                 <ul className={css.movies__description}>
                     <li>
                         <Link state={location.state} to="cast" >
@@ -46,5 +52,5 @@ export default function  Movies  () {
             </Suspense>
          </div>
     )
-
 }
+

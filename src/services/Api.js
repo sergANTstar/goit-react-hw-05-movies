@@ -1,35 +1,40 @@
-import axios from "axios";
 
 const BASE_URL = 'https://api.themoviedb.org/3';
-const KEY_API = '0069cb276a083aad6acda19b3adb7038';
-
-const defaultBaseUrl = axios.create({
-    baseURL: BASE_URL,
-    params: {
-        api_key: KEY_API,
-    }
-});
-
-export const getPopMovies = async () => {
-    const {data} = await defaultBaseUrl.get('/trending/movie/week');
-    return data;
-  };
-  export const getSerchMovies = async query => {
-    const { data } = await defaultBaseUrl.get('/search/movie', {
-      params: { query },
-    });
-    return data;
-  };
-  export const getDetailsMovies = async id => {
-    const { data } = await defaultBaseUrl.get(`movie/${id}`);
-    return data;
-  };
-  export const getCastMovies = async movieId => {
-    const { data } = await defaultBaseUrl.get(`/movie/${movieId}/credits`);
-    return data;
-  };
-  export const getRewiesMovies = async id => {
-    const { data } = await defaultBaseUrl.get(`
-  /movie/${id}/reviews`);
-    return data;
-  };
+const API_KEY = '0069cb276a083aad6acda19b3adb7038';
+async function fetchWithErrorHandling(url = '', config = {}) {
+  const response = await fetch(url, config);
+  return response.ok
+    ? await response.json()
+    : Promise.reject(new Error('Not found'));
+}
+// гет-запит  по  пошуку фільму
+export function getMovieBySearch(query) {
+  return fetchWithErrorHandling(
+    `${BASE_URL}/search/movie?&query=${query}&api_key=${API_KEY}&language=en-US&page=1&include_adult=false`
+  );
+}
+// гет-запит для актерського складу
+export function getCast(movieId) {
+  return fetchWithErrorHandling(
+    `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
+  );
+}
+//  гет=запит для оглядів чи відкугів на фільм
+export function getReviews(movieId) {
+  return fetchWithErrorHandling(
+    `${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`
+  );
+}
+//  гет-запит популярних фільмів
+export function GetTrending() {
+  return fetchWithErrorHandling(
+    `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`
+  );
+}
+// гет-запит про інфо фільму по айді
+export function getMoviesById(movieId) {
+  // а тут наоборот єкспанд автор - когда мі забираем одну книжку, мі прикрепляем к ней ее автора, тоже по айдишнику
+  return fetchWithErrorHandling(
+    `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`
+  );
+}
