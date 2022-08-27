@@ -10,11 +10,12 @@ export const Cast =() => {
     useEffect(() => {
         getCastMovies(movieId).then(data => {
             setMovieCast(data.cast);
+           
         });
     }, [movieId]);
 
     return(
-        <div>
+        <>
             {movieCast && movieCast.length 
             ? (<ul>
                     {movieCast.map(items => {
@@ -27,6 +28,6 @@ export const Cast =() => {
                 </ul>)
             : (<p>No movie</p>)
             }
-        </div>
+        </>
     )
 }

@@ -24,8 +24,8 @@ export const getPopMovies = async () => {
     const { data } = await defaultBaseUrl.get(`movie/${id}`);
     return data;
   };
-  export const getCastMovies = async id => {
-    const { data } = await defaultBaseUrl.get(`/movie/${id}/credits`);
+  export const getCastMovies = async movieId => {
+    const { data } = await defaultBaseUrl.get(`/movie/${movieId}/credits`);
     return data;
   };
   export const getRewiesMovies = async id => {

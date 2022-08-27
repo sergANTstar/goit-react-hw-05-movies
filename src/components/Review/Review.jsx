@@ -19,12 +19,12 @@ export const Review = () => {
                         {movieReviews.map(item => {
                             return (
                                 <li key={item.id}>
-                                    <RevieItems revviews={item}></RevieItems>
+                                    <RevieItems reviews={item}></RevieItems>
                                 </li>
                             )
                         })}
                     </ul>
-                ) : (<p>No data</p>)}
+                ) : (<p>No film</p>)}
             </div>
         )
 }

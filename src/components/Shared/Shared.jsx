@@ -1,31 +1,33 @@
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import css from './Shared.module.css';
+import {Link} from './Shared.styled'
 
 export const Shared = () => {
     return (
-        <header>
-            <div>
-                <nav>
-                    <ul>
-                        <li>
-                            <NavLink
+        <>
+        <header className={css.header}>
+                <nav className={css.header__block}>
+                    <ul className={css.header__block}>
+                        <li className={css.header__items}>
+                            <Link
                                 to="/goit-react-hw-05-movies/"
-                                className={({ isActive }) => (isActive ? 'active' : '')}
                             >
-                                Home
-                            </NavLink>
+                                <p  className={css.header__text}>Home</p>
+                            </Link>
                         </li>
-                        <li>
-                            <NavLink
-                                to="/goit-react-hw-05-movies/"
-                                className={({ isActive }) => (isActive ? 'active' : '')}
+                        <li className={css.header__items}>
+                            <Link 
+                                to="/goit-react-hw-05-movies/movies"
                             >
-                                Movies
-                            </NavLink>
+                                <p  className={css.header__text}>Movies</p>
+                            </Link>
                         </li>
                     </ul>
+                    
                 </nav>
-            </div>
-            <Outlet/>
+               
         </header>
+        <Outlet/>
+        </>
     )
 }

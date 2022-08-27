@@ -3,29 +3,30 @@ import {lazy, Suspense} from 'react';
 import {Shared} from './Shared/Shared';
 import {Cast} from './Cast/Cast';
 import { Review } from "./Review/Review";
+import { Loader} from './Loader/Loader';
 
-const SearchBar = lazy(() => import('../page/SearchBar'));
-const NotFound = lazy(() => import('../page/NotFound/NotFound'));
-const Movies = lazy(() => import('../page/Movies'));
+const SearchBar = lazy(() => import('../page/SearchBar/SearchBar'));
+const Movies = lazy(() => import('../page/Movies/Movies'));
 const Home = lazy(() => import('../page/Home'));
+const NotFound = lazy(() => import('../page/NotFound/NotFound'));
 
 
 
 export const App = () => {
   return (
-    <div>
-      <Routes>
-        <Route path="/goit-react-hw-05-movies/" element={<Shared/>}>
+  <Suspense fallback={<Loader/>}>
+    <Routes>
+      <Route path="/goit-react-hw-05-movies/" element={<Shared />}>
           <Route
-            index
-            element={<Suspense fallback={<h2>Loading...</h2>}>
+            index element={<Suspense fallback={<Loader/>}>
                 <Home/>
-              </Suspense>}
+              </Suspense>
+              }
           /> 
           <Route
             path="/goit-react-hw-05-movies/movies"
             element={
-              <Suspense fallback={<h2>Loading ...</h2>}>
+              <Suspense fallback={<Loader/>}>
                 <SearchBar />
               </Suspense>
             }
@@ -33,7 +34,7 @@ export const App = () => {
           <Route
             path="/goit-react-hw-05-movies/movies/:movieId"
             element={
-              <Suspense fallback={<h2>Loading ...</h2>}>
+              <Suspense fallback={<Loader/>}>
                 <Movies/>
               </Suspense>} 
           >
@@ -44,12 +45,12 @@ export const App = () => {
         <Route
           path="*"
           element={
-            <Suspense fallback={<h2>Loading...</h2>}>
+            <Suspense fallback={<Loader/>}>
               <NotFound/>
             </Suspense>
           }
         />
       </Routes>
-    </div>
+    </Suspense>
   );
 };

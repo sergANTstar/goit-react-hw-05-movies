@@ -19,7 +19,7 @@ export const MovieList = ({movieList}) => {
                                     src={
                                         poster_path
                                         ? `https://image.tmdb.org/t/p/w500${poster_path}`
-                                        : '../../img/404.jpeg'
+                                        : 'https://i.postimg.cc/G2jSRfZG/images.png'
                                     }
                                     alt={original_title}
                                     className={css.moviaList__img}

@@ -1,6 +1,7 @@
 .moviaList {
     display: grid;
-    max-width: calc(100vw - 48px);
+    width: 1600px;
+    max-width: calc(100vw - 50px);
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     grid-gap: 16px;
     margin: 20px auto;
@@ -30,4 +31,5 @@
     padding: 5px 10px;
     font-size: 21px;
     color: #42362b;
+    text-decoration: none;
 }

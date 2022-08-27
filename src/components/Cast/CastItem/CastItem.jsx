@@ -1,25 +1,26 @@
 import { PropTypes } from "prop-types";
 
 export const CastItem = ({cast}) => {
-    const {character, name, profilePath } = cast;
+    const {id, name, profile_path } = cast;
     return(
         <div>
             <img
-                srs={ profilePath
-                    ? `https://image.tmdb.org/t/p/w500${profilePath}`
+                srs={ profile_path
+                    ? `https://image.tmdb.org/t/p/w500${profile_path}`
                     : 'https://image.tmdb.org/t/p/w500/dBoOporkAEgZvRFz2h1Qi3ZozId.jpg'}
                 alt={name}
             />
             <h3>{name}</h3>
-            <p>Character: {character}</p>
+            <p>Character: {id}</p>
         </div>
     )
 }
 
+
 CastItem.propTypes = {
     cast: PropTypes.shape({
-      character: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      profilePath: PropTypes.string,
+      profile_path: PropTypes.string,
     }),
   };
