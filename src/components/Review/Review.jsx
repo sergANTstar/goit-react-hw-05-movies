@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import * as moviesAPI from 'services/Api';
-import { BackButton } from "components/BackButton/BackButton";
+import  BackButton  from "components/BackButton/BackButton";
 
 
-export const Review = () => {
+export default function Review() {
     const [movieReviews, setMovieReviews] = useState([]);
     const {movieId} = useParams();
 
@@ -24,6 +24,7 @@ export const Review = () => {
       return (
         <>
           {movieReviews.length > 0 ? (
+            <div>
             <ul>
               {movieReviews.map(items => (
                 <li key={items.id}>
@@ -38,9 +39,15 @@ export const Review = () => {
                 nameBtn={'go UP'}
               />
             </ul>
+                 <BackButton
+                 onClick={scrollToUp}
+                 nameBtn={'go UP'}
+               />
+            </div>
           ) : (
             <p>There are no reviews for this movie</p>
           )}
+        
         </>
       );
     }

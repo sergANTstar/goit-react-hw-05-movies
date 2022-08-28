@@ -4,6 +4,7 @@ import {Menue} from './Menue/Menue';
 import {Loader} from '../components/Loader/Loader';
 import 'react-toastify/dist/ReactToastify.css';
 import { Outlet } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 
 const Home = lazy(() => import('../page/Home/Home'));
@@ -21,14 +22,13 @@ export const App = () => {
   return (
     <>
     <Menue />
+    <ToastContainer/>
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="movies" element={<Outlet />}>
           <Route index element={<SearchBar />}></Route>
-         
           <Route path=":movieId" element={<MovieDetails/>}>
-          
             <Route path="cast" element={<Cast />}></Route>
             <Route path="reviews" element={<Review />}></Route>
           </Route>

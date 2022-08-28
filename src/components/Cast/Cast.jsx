@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import * as moviesAPI from 'services/Api';
-import { BackButton } from "components/BackButton/BackButton";
+import  BackButton from "components/BackButton/BackButton";
 
-export const Cast =() => {
+export default function Cast() {
     const [movieCast, setMovieCast] = useState([]);
     const {movieId} = useParams;
 
@@ -45,12 +45,14 @@ export const Cast =() => {
                   </p>
                 </li>
               ))}
-            </div>
-          )}
-          <BackButton
+                <BackButton
             onClick={scrollToUp}
             nameBtn={'go UP'}
           />
+            </div>
+            
+          )}
+        
         </>
       );
     }
