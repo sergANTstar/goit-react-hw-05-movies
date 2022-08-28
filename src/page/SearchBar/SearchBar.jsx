@@ -17,7 +17,7 @@ export default function SearchBar () {
    
     const navigate = useNavigate();
     const location = useLocation();
-    console.log('search:', location);
+   
    
     useEffect(() => {
      

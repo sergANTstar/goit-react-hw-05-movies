@@ -9,8 +9,7 @@ export default function Review() {
     const {movieId} = useParams();
 
     useEffect(() => {
-        moviesAPI
-          .getReviews(movieId)
+        moviesAPI.getReviews(movieId)
           .then(response => setMovieReviews(response.results));
       }, [movieId]);
 
@@ -24,7 +23,7 @@ export default function Review() {
       return (
         <>
           {movieReviews.length > 0 ? (
-            <div>
+            
             <ul>
               {movieReviews.map(items => (
                 <li key={items.id}>
@@ -39,11 +38,7 @@ export default function Review() {
                 nameBtn={'go UP'}
               />
             </ul>
-                 <BackButton
-                 onClick={scrollToUp}
-                 nameBtn={'go UP'}
-               />
-            </div>
+        
           ) : (
             <p>There are no reviews for this movie</p>
           )}

@@ -4,7 +4,7 @@ import * as moviesAPI from 'services/Api';
 import  BackButton from "components/BackButton/BackButton";
 
 export default function Cast() {
-    const [movieCast, setMovieCast] = useState([]);
+    const [movieCast, setMovieCast] = useState(null);
     const {movieId} = useParams;
 
     useEffect(() => {
@@ -45,14 +45,12 @@ export default function Cast() {
                   </p>
                 </li>
               ))}
-                <BackButton
+            </div>
+          )}
+          <BackButton
             onClick={scrollToUp}
             nameBtn={'go UP'}
           />
-            </div>
-            
-          )}
-        
         </>
       );
     }
