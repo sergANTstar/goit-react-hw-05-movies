@@ -23,7 +23,7 @@ export default function Home() {
     };
   
     return (
-      <>
+      <div>
         {movies && (
           <ul className={css.moviaList}>
             {movies.map(movie => (
@@ -38,8 +38,8 @@ export default function Home() {
                 </Link>
               </li>
             ))}
-          </ul>
+            </ul>
         )}
-      </>
+      </div>
     );
   }

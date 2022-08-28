@@ -10,17 +10,17 @@ export const  Menue = () => {
                 <nav className={css.header__block}>
                     <ul className={css.header__block}>
                         <li className={css.header__items}>
-                            <Link
-                                to="/goit-react-hw-05-movies/"
+                            <Link 
+                                to="/"
                             >
-                                <p  className={css.header__text}>Home</p>
+                                <p className={css.header__text} >Home</p>
                             </Link>
                         </li>
                         <li className={css.header__items}>
                             <Link 
-                                to="/goit-react-hw-05-movies/movies"
+                                to="/movies"
                             >
-                                <p  className={css.header__text}>Movies</p>
+                                <p className={css.header__text} >Movies</p>
                             </Link>
                         </li>
                     </ul>

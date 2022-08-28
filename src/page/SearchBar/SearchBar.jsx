@@ -4,10 +4,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import * as moviesAPI from 'services/Api';
+import { useSearchParams } from 'react-router-dom';
 
 export default function SearchBar () {
-    
-    const[searchMovie, setSearchMovie] = useState();
+    const [searchParams, setSearchParams] = useSearchParams();
+    const[searchMovie, setSearchMovie] = useState('');
     const [movies, setMovies] = useState([]);
     const navigate = useNavigate();
     const location = useLocation();
@@ -17,16 +18,7 @@ export default function SearchBar () {
     }
 
     useEffect(() => {
-        if (searchMovie.trim() === '') {
-            toast('enter the name of the movie', {
-              position: 'top-right',
-              autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
+        if (!searchParams.get('query')) {
             return;
           }
 
@@ -48,10 +40,22 @@ export default function SearchBar () {
           setMovies(response.results);
         
         });
-      }, [searchMovie]);
+      }, [searchParams, searchMovie ]);
     
       const hendlerSubmit = searchMovie => {
-       
+
+        if (searchMovie.trym()=== "") {
+        toast('enter the name of the movie', {
+            position: 'top-right',
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          return
+        }
         navigate(`/movies/?query=${searchMovie}`);
         setSearchMovie(searchMovie);
         setMovies([]);

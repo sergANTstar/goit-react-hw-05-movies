@@ -45,9 +45,8 @@ export default function  MoviesCard  () {
                         </Link>
                     </li>
                 </ul>
-                <Suspense fallback={<Loader />}>
                     <Outlet/>
-                </Suspense>
+               
             </div>
             </Suspense>
          </div>
