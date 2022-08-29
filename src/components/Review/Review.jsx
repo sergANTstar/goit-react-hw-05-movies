@@ -10,7 +10,7 @@ export default function Review() {
 
     useEffect(() => {
         moviesAPI.getReviews(movieId)
-          .then(response => setMovieReviews(response.results));
+          .then(response => setMovieReviews(response.data.results));
       }, [movieId]);
 
       const scrollToUp = () => {

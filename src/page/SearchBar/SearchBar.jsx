@@ -25,7 +25,7 @@ export default function SearchBar () {
         return;
       }
       moviesAPI.getMovieBySearch(searchMovie).then(response => {
-        if (response.results.length === 0) {
+        if (response.data.results.length === 0) {
           return toast(
             'Sorry, no movies were found for your request', {
                 position: 'top-right',
@@ -37,7 +37,7 @@ export default function SearchBar () {
                 progress: undefined,
             })
         }
-        setMovies(response.results);
+        setMovies(response.data.results);
         
       });
     }, [searchMovie]);

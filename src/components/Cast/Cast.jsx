@@ -8,11 +8,10 @@ export default function Cast() {
     const {movieId} = useParams;
 
     useEffect(() => {
-        moviesAPI.getCast(movieId).then(response => setMovieCast(response.cast) );
+        moviesAPI.getCast(movieId).then(response => setMovieCast(response.data.cast) );
         
     }, [movieId]);
 
-    
 
     const poster = profile_path => {
         return profile_path === null 

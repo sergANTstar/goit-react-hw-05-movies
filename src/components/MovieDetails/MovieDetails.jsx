@@ -17,7 +17,7 @@ export default function MovieDetails() {
     const location = useLocation();
   
     useEffect(() => {
-      moviesAPI.getMoviesById(movieId).then(response => setMovie(response));
+      moviesAPI.getMoviesById(movieId).then(response => setMovie(response.data));
     }, [movieId]);
 
     const poster = poster_path => {

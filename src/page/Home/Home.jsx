@@ -12,7 +12,7 @@ export default function Home() {
     const [movies, setMovies] = useState(null);
 
     useEffect(() => {
-      moviesAPI.GetTrending().then(response => setMovies(response.results));
+      moviesAPI.GetTrending().then(response => setMovies(response.data.results));
     }, []);
 
     
