@@ -23,12 +23,11 @@ export default function Review() {
       return (
         <>
           {movieReviews.length > 0 ? (
-            
             <ul>
               {movieReviews.map(items => (
                 <li key={items.id}>
                   <p>
-                    Author: <p> {items.author} </p>
+                    Author: <span> {items.author} </span>
                   </p>
                   <p>{items.content}</p>
                 </li>

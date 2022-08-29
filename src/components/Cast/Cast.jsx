@@ -8,8 +8,11 @@ export default function Cast() {
     const {movieId} = useParams;
 
     useEffect(() => {
-        moviesAPI.getCast(movieId).then(response => setMovieCast(response.cast));
+        moviesAPI.getCast(movieId).then(response => setMovieCast(response.cast) );
+        
     }, [movieId]);
+
+    
 
     const poster = profile_path => {
         return profile_path === null 
@@ -36,12 +39,8 @@ export default function Cast() {
                     width="240"
                   />
                   <p>{items.name}</p>
-                  <p>
-                    {' '}
-                    Character:<p>
-                      {' '}
-                      {items.character}{' '}
-                    </p>{' '}
+                  <p>Character:
+                    <span>{items.character}</span>
                   </p>
                 </li>
               ))}
