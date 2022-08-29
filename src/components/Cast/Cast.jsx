@@ -27,7 +27,7 @@ export default function Cast() {
       };
 
       return (
-        <>
+        <div>
           {movieCast && (
             <div>
               {movieCast.map(items => (
@@ -49,6 +49,6 @@ export default function Cast() {
             onClick={scrollToUp}
             nameBtn={'go UP'}
           />
-        </>
+        </div>
       );
     }

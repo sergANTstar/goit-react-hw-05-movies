@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react';
 export default function MovieDetails() {
    
     const { movieId } = useParams();
-    const [movie, setMovie] = useState(null);
+    const [movie, setMovie] = useState('');
 
     const navigate = useNavigate();
 
@@ -75,16 +75,16 @@ export default function MovieDetails() {
                         <div className={css.movieCard__additionalBlock}>
                             <h2> Additional information </h2>
                             <div className={css.movieCard__additional}>
-                                <NavLink to={`/movies/${movie.id}/cast`} state={location.state}>
+                                <NavLink to={`/movies/${movie.id}/cast`} state={location.state}>      
                                     <p className={css.movieCard__additionalText}>Cast</p>
                                 </NavLink>
                                 <NavLink to={`/movies/${movie.id}/reviews`} state={location.state}>
-                                <p className={css.movieCard__additionalText}>Reviews</p>
+                                     <p className={css.movieCard__additionalText}>Reviews</p>
                                 </NavLink>
                             </div>
                         </div>
                     </div>
-              <Outlet />
+                    <Outlet />
               </div>
             </div>
           )}

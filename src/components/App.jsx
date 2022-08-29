@@ -32,10 +32,9 @@ export const App = () => {
             <Route path="reviews" element={<Review />}></Route>
           </Route>
         </Route>
-        <Route path="/" element={<NotFound />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </Suspense>
-    {/* </Suspense> */}
   </>
   );
 };
