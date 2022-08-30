@@ -75,8 +75,8 @@ export default function MovieDetails() {
                         <div className={css.movieCard__additionalBlock}>
                             <h2> Additional information </h2>
                             <div className={css.movieCard__additional}>
-                                <NavLink to={`/movies/${movie.id}/cast`} state={location.state}>      
-                                    <p className={css.movieCard__additionalText}>Cast</p>
+                                <NavLink to={`/movies/${movie.id}/cast`} state={location.state}>
+                                     <p className={css.movieCard__additionalText}>Cast</p>
                                 </NavLink>
                                 <NavLink to={`/movies/${movie.id}/reviews`} state={location.state}>
                                      <p className={css.movieCard__additionalText}>Reviews</p>

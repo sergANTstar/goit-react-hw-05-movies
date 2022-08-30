@@ -4,7 +4,7 @@ import * as moviesAPI from 'services/Api';
 import  BackButton from "components/BackButton/BackButton";
 
 export default function Cast() {
-    const [movieCast, setMovieCast] = useState(null);
+    const [movieCast, setMovieCast] = useState('');
     const {movieId} = useParams;
 
     useEffect(() => {
@@ -28,27 +28,24 @@ export default function Cast() {
 
       return (
         <div>
-          {movieCast && (
+          {movieCast.length > 0 
+          ? (
             <div>
               {movieCast.map(items => (
                 <li key={items.id}>
                   <img
                     src={`${poster(items.profile_path)}`}
                     alt={items.name}
-                    width="240"
                   />
-                  <p>{items.name}</p>
-                  <p>Character:
-                    <span>{items.character}</span>
-                  </p>
                 </li>
               ))}
-            </div>
-          )}
-          <BackButton
-            onClick={scrollToUp}
-            nameBtn={'go UP'}
-          />
+               <BackButton
+                  onClick={scrollToUp}
+                  nameBtn={'go UP'}
+                />
+            </div>)
+            : <p>There are no cast for this movie</p>
+          }
         </div>
       );
     }

@@ -7,6 +7,7 @@ import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 
+
 const Home = lazy(() => import('../page/Home/Home'));
 const SearchBar = lazy(() => import('../page/SearchBar/SearchBar'));
 const MovieDetails = lazy(() =>
