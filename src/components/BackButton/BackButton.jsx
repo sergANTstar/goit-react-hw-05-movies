@@ -10,6 +10,7 @@ export default function BackButton  ({onClick, nameBtn})  {
     );
 };
 
+
 BackButton.propTypes = {
     onClick: PropTypes.func.isRequired,
     nameBtn: PropTypes.string.isRequired,

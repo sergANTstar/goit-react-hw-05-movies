@@ -21,6 +21,7 @@ export default function MovieDetails() {
     }, [movieId]);
 
     const poster = poster_path => {
+      
       return !poster_path
       ? 'https://i.postimg.cc/G2jSRfZG/images.png'
       : `https://image.tmdb.org/t/p/w300${poster_path}`;

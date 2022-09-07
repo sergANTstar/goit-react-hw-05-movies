@@ -10,6 +10,7 @@ export const Loader = () => {
                 height={200}
                 width={200} 
                 timeout={500}
+                
             />
         </div>
     );

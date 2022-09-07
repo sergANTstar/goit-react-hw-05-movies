@@ -25,4 +25,3 @@ export const getMovieBySearch = (query) => {
     `/search/movie?${KEY}&query=${query}&page=1&include_adult=false`
   );
 };
-
