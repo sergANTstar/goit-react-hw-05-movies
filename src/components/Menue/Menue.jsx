@@ -8,7 +8,8 @@ export const  Menue = () => {
         
         <>
         <header className={css.header}>
-                <nav className={css.header__block}>
+            <div className={css.header__nav}>
+                <nav>
                     <ul className={css.header__block}>
                         <li className={css.header__items}>
                             <Link 
@@ -25,9 +26,8 @@ export const  Menue = () => {
                             </Link>
                         </li>
                     </ul>
-                    
                 </nav>
-               
+            </div>
         </header>
         <Outlet/>
         </>

@@ -1,0 +1,20 @@
+.cast{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+    margin-top: 50px;
+    padding: 0;
+}
+
+.cast_item{
+    display: block;
+    width: 235px; 
+}
+
+.cast_img{
+    display: block;
+    width: 235px; 
+    object-fit: cover;
+}
